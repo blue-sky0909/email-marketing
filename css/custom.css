@@ -1,0 +1,16 @@
+.tab-content>.tab-pane {
+    display: none;
+}
+.tab-content>.active {
+    display: block;
+}
+
+.nestedZone .trashcan img {
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.trashcan li img {
+    width: 100px !important;
+}

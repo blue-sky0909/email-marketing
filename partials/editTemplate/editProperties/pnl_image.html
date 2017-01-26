@@ -1,0 +1,55 @@
+<div class="optionsContent">
+	<div class="properties">
+		<div class="col_12 panelHeading">
+			<label >IMAGE PROPERTIES</label>
+		</div>
+		<div class="col_12" style='font-size: 14px;'>
+			<label >Name : </label> {{agent.module.attrs.filename}}
+		</div>	
+		<div class="col_12">
+			<div ng-controller="uploaderCtrl">
+				<div
+				ngf-select
+				ng-model="itemPic"
+				ngf-change="agent.module.attrs.filename = itemPic[0].name"
+				ngf-multiple="imgUpOpts.multiple"
+				ng-model-rejected="imgUpOpts.rejFiles"
+				ngf-accept="imgUpOpts.accept"
+				accept="{{imgUpOpts.acceptSelect}}"
+				ng-disabled="imgUpOpts.disabled"
+				ngf-keep="imgUpOpts.keep"
+				ngf-keep-distinct="imgUpOpts.keepDistinct"
+				ngf-reset-on-click="imgUpOpts.resetOnClick"
+				ngf-reset-model-on-click="imgUpOpts.resetModelOnClick"
+				ngf-allow-dir="imgUpOpts.allowDir"
+				ngf-drop-available="false">
+					<div class="btn button bleu">Change image</div>
+				</div>
+			</div>
+
+			<div class="btn button dark" ng-click="launchAviary('img-'+agent.id, agent.module.attrs.src)">Edit image</div>
+		</div>
+			<div class="col_12" style='font-size: 14px;padding-bottom:  50px;padding-top:50px'>
+				<label> Image URL</label>
+				<input type="text" ng-model="agent.module.attrs.src" class="full">
+			</div>
+			<div class="col_12" style='font-size: 14px;padding-bottom: 50px;'>
+				<label>Adjust to width</label>
+				<div class="right">
+					<input type="checkbox" name="toggle" class="toggle" id="toggle5"  ng-model="fullWidth" ng-init="fullWidth = agent.module.style.width == '100%'" ng-change="agent.module.style.width = fullWidth ? '100%' : 'auto' ">
+					<label for="toggle5"></label>
+				</div>
+			</div>
+			<div class="col_12" style='font-size: 14px;padding-bottom: 50px;'>
+				<label>Alternate text</label>
+				<input type="text" ng-model="agent.module.attrs.alt" class="full">
+			</div>
+			<div class="col_12" style='font-size: 14px;padding-bottom: 50px;'>
+				<label>Link to</label>
+				<input type="text" ng-model="agent.module.attrs.href" class="full">
+			</div>
+			<div class="col_12"  style='font-size: 14px'>
+				<label>Spacing</label>
+			</div>
+			<div class="common-cnt-paddings" ng-include="edit_pnl_tpls_resource+'common_cnt_paddings_usual.html'" data-dynamic="{{paddingsBundle = agent.module.style.outerPaddings}}"></div>
+</div>

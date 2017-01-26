@@ -1,0 +1,19 @@
+<div ng-init="init_paddingProps(paddingsBundle)" class="inline">
+</div>
+
+<div class="paddingOptions">
+	<span >
+		<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+			<p>Top</p>
+			<number-pilot ng-model="paddingsBundle.paddingTop" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+			<p>Bottom</p>
+			<number-pilot ng-model="paddingsBundle.paddingBottom" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		</div>
+		<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+			<p>Right</p>
+			<number-pilot ng-model="paddingsBundle.paddingRight" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+			<p>Left</p>
+			<number-pilot ng-model="paddingsBundle.paddingLeft" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		</div>
+	</span>
+</div>

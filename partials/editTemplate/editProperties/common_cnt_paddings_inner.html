@@ -1,0 +1,44 @@
+
+<div class="line"></div>
+
+<div ng-init="init_paddingProps(innerPaddingsBundle)" class="inline">
+	<label>Content Padding</label>
+	
+	<div class="right">
+	  <span class="small">More Options</span>			
+	  <input type="checkbox" ng-model="morePaddingOpts" class="toggle" id="moreInPadOptsToggle{{$index}}">
+	  <label for="moreInPadOptsToggle{{$index}}"></label>
+	</div>
+</div>
+
+<div class="lineDivider"></div>
+
+<div class="paddingOptions">
+	<div class="inline" ng-if="!morePaddingOpts">
+		<label>All Sides</label>
+		<div class="col_6  omega right nbr">
+		<number-pilot ng-model="innerPaddingsBundle.paddingTop"
+		change="
+			innerPaddingsBundle.paddingBottom=innerPaddingsBundle.paddingTop;
+			innerPaddingsBundle.paddingRight=innerPaddingsBundle.paddingTop;
+			innerPaddingsBundle.paddingLeft=innerPaddingsBundle.paddingTop;
+		"
+		min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		</div>
+	</div>
+	
+	<span ng-if="morePaddingOpts">
+		<div class="col_6 alpha">
+			<p>Top</p>
+			<number-pilot ng-model="innerPaddingsBundle.paddingTop" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+			<p>Bottom</p>
+			<number-pilot ng-model="innerPaddingsBundle.paddingBottom" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		</div>
+		<div class="col_6 alpha">
+			<p>Right</p>
+			<number-pilot ng-model="innerPaddingsBundle.paddingRight" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+			<p>Left</p>
+			<number-pilot ng-model="innerPaddingsBundle.paddingLeft" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		</div>
+	</span>
+</div>

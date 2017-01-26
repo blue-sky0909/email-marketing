@@ -1,0 +1,58 @@
+
+<div class="optionsContent">
+	<div class="properties">
+		<div class="col_12 panelHeading">
+			<label>Row PROPERTIES</label>
+		</div>
+			<div class="col_12">
+				<label>Content background</label>
+				<color-picker
+				ng-model="agent.style.content.backgroundColor"
+				color-picker-format="colorPicker.format"
+				color-picker-alpha="colorPicker.alpha"
+				color-picker-swatch="colorPicker.swatch"
+				color-picker-swatch-pos="colorPicker.swatchPos"
+				color-picker-pos="colorPicker.pos"
+				color-picker-case="colorPicker.case"
+				color-picker-swatch-only="colorPicker.swatchOnly">
+				</color-picker>
+			</div>
+			
+			<div class="space"></div>
+			<div class="col_12 panelHeading" ng-show="agent.columns.length > 0">
+				<label>Column PROPERTIES</label>
+			</div>
+			<ul class="nav nav-tabs nav-justified">
+				<li ng-repeat="column in agent.columns" ng-click="selectProColumns($index)" ng-class="{active: proColumns['column_'+$index]}">
+					<a ng-href>Column {{$index+1}}</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div ng-repeat="column in agent.columns" class="tab-pane" ng-class="{active: proColumns['column_'+$index]}">
+						<div class="col_12">
+							<label>Column Background</label>
+							<color-picker
+							ng-model="column.columnStyles.backgroundColor"
+							color-picker-format="colorPicker.format"
+							color-picker-alpha="colorPicker.alpha"
+							color-picker-swatch="colorPicker.swatch"
+							color-picker-swatch-pos="colorPicker.swatchPos"
+							color-picker-pos="colorPicker.pos"
+							color-picker-case="colorPicker.case"
+							color-picker-swatch-only="colorPicker.swatchOnly">
+							</color-picker>
+						</div>
+						<div class="col_12" style="font-size: 14px;">
+							<label >Spacing </label>
+						</div>							
+						<div class="line"></div>
+						<div class="common-cnt-paddings" ng-include="edit_pnl_tpls_resource+'common_cnt_paddings_usual.html'" ng-init="paddingsBundle = column.columnStyles"></div>
+						<div class="col_12" style="font-size: 14px;">
+							<label >Spacing </label>
+						</div>	
+						<div class="common-cnt-borders" ng-include="edit_pnl_tpls_resource+'common_cnt_borders.html'" ng-init="bordersBundle = column.columnStyles"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

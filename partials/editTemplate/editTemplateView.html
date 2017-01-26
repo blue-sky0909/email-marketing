@@ -1,0 +1,575 @@
+<div ng-controller="editTemplateCtrl" class="tplContainer nestedZone">
+	<!--Panel-->
+	<div class="panel">
+		<div class="panelHeader">
+			<div style="display: table-cell">
+				<a href="#"><i id="menuClose"  class="flaticon-square-1"></i> </a>
+			</div>
+			<div id="menuLogo">
+				<img src="img/logo-white.png" alt="DirectIQ logo white">
+			</div>
+		</div>
+
+		<div class="topmenu" ng-show="show">
+			<ul class="level1">
+				<li><a href="#"><i class="font-home"></i>Home</a> </li>
+				<li><a href="#"><i class="font-user"></i>Profils</a> </li>
+				<li><a href="#"><i class="font-support"></i>Support</a> </li>
+				<li><a href="#"><i class="font-send"></i>Send Test</a> </li>
+				<li><a href="#"><i class="font-about"></i>About</a> </li>
+			</ul>
+		</div>
+
+		<!-- Sidebar -->
+		<div class="side-edit-panel">
+			<div class="renderPanel" >
+<!-- 				<span class="pullHandle">
+					<i class="fa fa-chevron-circle-right"></i>
+				</span> -->
+				<ul class="nav nav-tabs nav-justified" style= "background-color: rgb(255,58,162);color:white; height: 65px; line-height:65px;" ng-init="widgetTabs={body: true, structure: false, content: false}">
+					<li ng-click="selectWidgetTab('body')" ng-class="{active: widgetTabs.body}">
+						<i class="nav-icon flaticon-paint-pallete-with-paint-brush"></i>
+					</li>
+					<li ng-click="selectWidgetTab('structure')" ng-class="{active: widgetTabs.structure}">
+						<i class="nav-icon flaticon-square"></i>
+					</li>
+					<li ng-click="selectWidgetTab('content')" ng-class="{active: widgetTabs.content}">
+						<i class="nav-icon flaticon-web-design"></i>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane" ng-class="{active: (widgetTabs.body === true)}">
+
+						<div class="bodyContent">
+							<div class="panelOption renderPanel">
+								<div class="col_12">
+									<label class="layout-title">COLOR OPTIONS</label>
+								</div>
+								<div class="col_12">
+									<div>
+										<label>Background color</label>
+										<div class="col_6 omega right">
+											<color-picker
+											ng-model="mailSettings.tpl_bodyStyles.container.backgroundColor"
+											color-picker-format="colorPicker.format"
+											color-picker-alpha="colorPicker.alpha"
+											color-picker-swatch="colorPicker.swatch"
+											color-picker-swatch-pos="colorPicker.swatchPos"
+											color-picker-pos="colorPicker.pos"
+											color-picker-case="colorPicker.case"
+											color-picker-swatch-only="colorPicker.swatchOnly">
+											</color-picker>
+										</div>
+									</div>
+									<div>
+										<label>Email Color</label>
+										<div class="col_6 omega right">
+											<color-picker
+											ng-model="mailSettings.tpl_bodyStyles.content.backgroundColor"
+											color-picker-format="colorPicker.format"
+											color-picker-alpha="colorPicker.alpha"
+											color-picker-swatch="colorPicker.swatch"
+											color-picker-swatch-pos="colorPicker.swatchPos"
+											color-picker-pos="colorPicker.pos"
+											color-picker-case="colorPicker.case"
+											color-picker-swatch-only="colorPicker.swatchOnly">
+											</color-picker>
+										</div>
+									</div>
+									<div>
+										<label>Font Color</label>
+										<div class="col_6 omega right">
+											<color-picker
+											ng-model="mailSettings.tpl_bodyStyles.content.color"
+											color-picker-format="colorPicker.format"
+											color-picker-alpha="colorPicker.alpha"
+											color-picker-swatch="colorPicker.swatch"
+											color-picker-swatch-pos="colorPicker.swatchPos"
+											color-picker-pos="colorPicker.pos"
+											color-picker-case="colorPicker.case"
+											color-picker-swatch-only="colorPicker.swatchOnly">
+											</color-picker>
+										</div>
+									</div>
+									<div>
+										<label>Link Color</label>
+										<div class="col_6 omega right">
+											<color-picker
+											ng-model="mailSettings.tpl_bodyStyles.content.linkColor"
+											color-picker-format="colorPicker.format"
+											color-picker-alpha="colorPicker.alpha"
+											color-picker-swatch="colorPicker.swatch"
+											color-picker-swatch-pos="colorPicker.swatchPos"
+											color-picker-pos="colorPicker.pos"
+											color-picker-case="colorPicker.case"
+											color-picker-swatch-only="colorPicker.swatchOnly">
+											</color-picker>
+										</div>
+									</div>
+									<div>
+										<label>Font</label>
+										<div class="col_6 omega right">
+											<select class="form-control" ng-model="mailSettings.tpl_bodyStyles.content.fontFamily" ng-options="font.family as font.fontName for font in fontFamilies">
+												<option style="display:none;" value=""></option>
+											</select>
+										</div>
+									</div>
+									<div>
+										<label>Font Size</label>
+										<div class="col_6 omega right">
+											<div class="input-group right">
+												<number-pilot ng-model="mailSettings.tpl_bodyStyles.content.fontSize" min="7" max="50" step="numPilotOpts.step"></number-pilot>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" ng-class="{active: (widgetTabs.structure === true)}">
+						<div class="strContent toolbox">
+							<div class="col_12">
+								<label class="layout-title">LAYOUT </label>
+							</div>
+							<div class="col_12">
+								<label class="layout-label"> Drag and drop the desired content section to your email </label>
+							</div>
+							<ul class="col_12">
+								<li ng-repeat="row in models.templates.rows"
+								dnd-draggable="row"
+								dnd-type="row.type"
+								dnd-effect-allowed="copy"
+								dnd-copied="set_copied_itemIds(row);">
+									<div class="strWidget default">
+										<div ng-show="row.info.icon" class="col_12">
+											<div class="rowImage" data-toggle="tooltip" title="{{row.tooltip_txt}}" 
+												style="background-image: url('{{row.info.icon}}')"></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="tab-pane" ng-class="{active: (widgetTabs.content === true)}">
+						<div class="col_12">
+							<label class="layout-title">CONTENT BLOCKS</label>
+						</div>
+						
+						<div class="col_12">
+							<label class="layout-label"> Drag and drop the desired content block to your email </label>
+						</div>
+						<div class="toolbox">
+							<ul class="widgetContent">
+								<li ng-repeat="item in models.templates.contents"
+								dnd-draggable="item"
+								dnd-type="item.type"
+								dnd-effect-allowed="copy"
+								dnd-copied="set_copied_itemIds(item);">
+									<div class="col_6">
+										<div class="widget" >
+											<img src="{{item.info}}"></img>
+										</div>
+
+									</div>
+								</li>
+							</ul>	
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="optionPanel" ng-show="activePanelGroup.name == 'settingsGroup'" >
+			<span class="pullHandle" ng-click="activePanelGroup.name == 'settingsGroup' ? (activePanelGroup.name = 'renderGroup') : null">
+				<i class="fa fa-chevron-left"></i>
+			</span>	
+			<div class="settingsPanel"  ng-class="{'content-panel': is_contentType(editPanelTpl.type)}">
+				<div ng-include="editPanelTpl.url"></div>
+			</div>	
+	</div>
+	<!-- Main area with dropzoneElems -->
+	<div class="mailContent" ng-style="{'background-color': mailSettings.tpl_bodyStyles.container.backgroundColor}">
+		<div class="dropzone clearfix">
+			<div class="mainContainer" ng-style="{'background-color': mailSettings.tpl_bodyStyles.container.backgroundColor}">
+				<div class="mainContent" ng-style="{'font-family': mailSettings.tpl_bodyStyles.content.fontFamily, 'font-size': mailSettings.tpl_bodyStyles.content.fontSize+'px', 'color': mailSettings.tpl_bodyStyles.content.color ,'background-color':mailSettings.tpl_bodyStyles.content.backgroundColor}">
+					<style>
+					.mainContent a,
+					.mainContent a:link,
+					.mainContent a:visited,
+					.mainContent a:hover,
+					.mainContent a:active {
+						color: {{mailSettings.tpl_bodyStyles.content.linkColor}};
+					}
+					</style>
+					<div ng-init="list = dropzoneElements" ng-include="'list.html'"></div>
+				</div>
+<!-- 				<div style="text-align: center; margin-top : 10px;">
+					<p> You are receiving the message because you are part of some email list.  </p>
+					<p> Unsubscribe </p>
+				</div>				 -->
+			</div>
+		</div>
+
+		<div class="modelsPreview" ng-class="{show: debugMode}">
+			<h3><label for="modelsPreview">Models Preview</label> <input type="checkbox" ng-click="genMailHTML()" ng-model="showModels" id="modelsPreview"></h3>
+			<div class="previewBox" ng-show="showModels">
+				<em>Inline</em>
+				<pre>{{liveModels.bundle}}</pre>
+				<em>Expanded</em>
+				<pre>{{liveModels.json}}</pre>
+			</div>
+		</div>
+	</div>
+	
+	<div class="savePanel" ng-class="{fade: mailHasChanged}">
+		<button type="button" style="width:100%; border-radius:25px;background-color: rgb(62, 205, 84);" class="btn btn-info" ng-click="open_saveModal()">
+			<i class="flaticon-save" style="margin:0"> </i> <span style="line-height:35px;"> Save draft </span>
+		</button>
+	</div>
+	<div class="testPanel" ng-class="{fade: mailHasChanged}">
+		<button type="button" style="width:100%;border-radius:25px;	background-color: rgb(106, 215, 251);" class="btn btn-info" ng-click="open_testModal()">
+			<i class="flaticon-send-mail" style="margin-left:0"> </i> <span style="line-height:35px;"> Test mail </span>
+		</button>
+	</div>	
+
+	<div class="exitPanel" ng-class="{fade: mailHasChanged}">
+		<button type="button" style="text-align:center;width:100%;border-radius:25px;	background-color: #ff0087;" class="btn btn-info" ng-click="exit()">
+			<i class="fa fa-times" aria-hidden="true" style="margin-bottom:10px;line-height:35px;"></i> <span style="font-size:18px;"> Exit </span>
+		</button>
+	</div>	
+
+	<script type="text/ng-template" id="saveModalContent.html">
+		<div class="modal-header bg-primary text-center">
+			<h3 class="modal-title">Save Panel</h3>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<label for="mailTitle">Mail Title</label>
+				<div class="input-group">
+					<input type="text" ng-model="mailTitle" class="form-control" id="mailTitle" placeholder="Mail Title" maxlength="100" >
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mailSubject">Mail Subject</label>
+				<div class="input-group">
+					<input type="text" ng-model="mailSubject" class="form-control" id="mailSubject" placeholder="Mail Subject" maxlength="100">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary" ng-click="saveMail()">
+				<i class="fa fa-floppy-o"></i> Save
+			</button>
+			<button class="btn btn-warning" type="button" ng-click="cancel()">
+				<i class="fa fa-times"></i> Cancel
+			</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="testModalContent.html">
+		<div class="modal-header bg-primary text-center">
+			<h3 class="modal-title">Send Test Panel</h3>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<label for="mailAddr">Mail Address</label>
+				<div class="input-group">
+					<input type="text" ng-model="mailAddr" class="form-control" id="mailAddr" placeholder="Mail Address" maxlength="100">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mailSubject">Mail Subject</label>
+				<div class="input-group">
+					<input type="text" ng-model="mailSubject" class="form-control" id="mailSubject" placeholder="Mail Subject" maxlength="100">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-info" ng-click="testSendMail()">
+				<i class="flaticon-send-mail"></i> Send Test Mail
+			</button>
+			<button class="btn btn-warning" type="button" ng-click="cancel()">
+				<i class="fa fa-times"></i> Cancel
+			</button>
+		</div>
+	</script>	
+</div>
+
+<!-- Markup for lists inside the dropzone. -->
+<script type="text/ng-template" id="list.html">
+	<ul dnd-list="list"
+	dnd-disable-if="disableDrag(dropzoneElements, list)"
+	dnd-allowed-types="dropableTypes(dropzoneElements, list)"
+	dnd-drop="dropCallback(event, index, item, external, type, 'containerType')">
+        <li ng-repeat="item in list"
+			dnd-draggable="item"
+			dnd-type="item.type"
+            dnd-effect-allowed="move"
+            dnd-moved="list.splice($index, 1)"
+			dnd-selected="selectItem(item, list, $index); set_currentContainer(event)"
+            ng-class="{selected: models.selected === item, baseList: list[0].is_mainContainer}"
+			ng-style="{
+			'padding-top': item.style.paddingTop+'px',
+			'padding-right': item.style.paddingRight+'px',
+			'padding-bottom': item.style.paddingBottom+'px',
+			'padding-left': item.style.paddingLeft+'px',
+			'border-top': concatBorderAttrs(item.style.borderTop),
+			'border-right': concatBorderAttrs(item.style.borderRight),
+			'border-bottom': concatBorderAttrs(item.style.borderBottom),
+			'border-left': concatBorderAttrs(item.style.borderLeft),
+			'background-color': item.style.backgroundColor
+			}"
+            ng-include="item.type ? item.type + '.html' : false">
+        </li>
+    </ul>
+</script>
+
+<!-- Template for "row items" that higher than one column -->
+<script type="text/ng-template" id="row_multi_col_wrapper.html">
+	<div class="strContainer" ng-mouseover="$event.stopPropagation(); rowHover=true" ng-mouseout="rowHover=false" ng-class="{'rowLines': rowHover}">
+		<div class="iq-structure">
+			<div class="moveWidget" ng-class="{'hidden': !rowHover}"><i class="fa fa-arrows"></i></div>
+			<div class="removeWidget" ng-class="{'hidden': !rowHover}" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+			<div class="rowBlock" ng-style="{width: '100%', 'background-color': item.style.container.backgroundColor}">
+				<div class="contentWrapper"
+				ng-style="{width: mailSettings.tpl_bodyStyles.content.width.size + mailSettings.tpl_bodyStyles.content.width.measurementType, 'background-color': item.style.content.backgroundColor}"
+				id="{{current_rowId}}" ng-init="current_rowId=item.type+'-'+item.id">
+					<div class="contentBlock"
+					ng-repeat="column in item.columns" ng-include="'list.html'"
+					ng-init="list=column.columnContents"
+					ng-style="{
+					'width': (mailSettings.tpl_bodyStyles.content.width.size / item.columns.length) + mailSettings.tpl_bodyStyles.content.width.measurementType,
+					'background-color': column.columnStyles.backgroundColor,
+					'border-radius': column.columnStyles.borderRadius+'px',
+					'padding-top': column.columnStyles.paddingTop+'px',
+					'padding-right': column.columnStyles.paddingRight+'px',
+					'padding-bottom': column.columnStyles.paddingBottom+'px',
+					'padding-left': column.columnStyles.paddingLeft+'px',
+					'border-top-width': column.columnStyles.borderTop.width,
+					'border-right-width': column.columnStyles.borderRight.width,
+					'border-bottom-width': column.columnStyles.borderBottom.width,
+					'border-left-width':column.columnStyles.borderLeft.width,
+					'border-color' : column.columnStyles.borderRight.color,
+					'border-style' : column.columnStyles.borderRight.style
+					}"
+					ng-class="{'empty-col': list.length < 1}" data-label="No content here. Drag new from 'Content' panel."
+					>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</script>
+
+<!-- Template for a IMAGE "content item" -->
+<script type="text/ng-template" id="cnt_image.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false" ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}" ng-init="current_itemId=item.type+'-'+item.id">
+			<div ng-controller="uploaderCtrl" ng-class="{'imgDropZone': item.module.attrs.filename == null}">
+				<div
+				ng-show="item.module.attrs.filename == null"
+				ngf-select
+				ngf-drop
+				ng-model="itemPic"
+				ngf-change="item.module.attrs.filename = itemPic[0].name"
+				ngf-multiple="imgUpOpts.multiple"
+				ng-model-rejected="imgUpOpts.rejFiles"
+				ngf-accept="imgUpOpts.accept"
+				accept="{{imgUpOpts.acceptSelect}}"
+				ng-disabled="imgUpOpts.disabled"
+				ngf-capture="imgUpOpts.capture"
+				ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+				ngf-keep="imgUpOpts.keep"
+				ngf-keep-distinct="imgUpOpts.keepDistinct"
+				ngf-reset-on-click="imgUpOpts.resetOnClick"
+				ngf-reset-model-on-click="imgUpOpts.resetModelOnClick"
+				ngf-allow-dir="imgUpOpts.allowDir"
+				ngf-drop-available="imgUpOpts.dropAvailable"
+				class="drop-box">
+					<img ng-src="img/image.svg" title="Image">
+				</div>
+
+				<div class="" ng-show="itemPic[0].progress >= 0 && itemPic[0].progress < 100">
+					<div class="info">Upload in progress</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="{{itemPic[0].progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{itemPic[0].progress}}%;">
+							<span ng-bind="itemPic[0].progress + '%'"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="image-wrap"
+				ng-show="item.module.attrs.src != null"
+				ng-style="{
+				'text-align': item.module.style.textAlign,
+				'padding-top': item.module.style.outerPaddings.paddingTop+'px',
+				'padding-right': item.module.style.outerPaddings.paddingRight+'px',
+				'padding-bottom': item.module.style.outerPaddings.paddingBottom+'px',
+				'padding-left': item.module.style.outerPaddings.paddingLeft+'px'
+				}">
+					<a ng-href="{{item.module.attrs.href}}" target="_blank">
+						<img id="{{'img-'+item.id}}"
+						ng-src="{{item.module.attrs.src}}"
+						ng-style="{
+						'width': item.module.style.width
+						}"
+						alt="{{item.module.attrs.alt}}"
+						title="{{item.module.attrs.alt}}">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Template for a TEXT "content item" -->
+<script type="text/ng-template" id="cnt_text.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false"  ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}" ng-init="current_itemId=item.type+'-'+item.id;">
+			<style>
+			#{{current_itemId}} .cke a,
+			#{{current_itemId}} .cke a:link,
+			#{{current_itemId}} .cke a:visited,
+			#{{current_itemId}} .cke a:hover,
+			#{{current_itemId}} .cke a:active {
+				color: {{item.module.style.linkColor}};
+			}
+			</style>
+			<div id="{{cke_id}}" inline-text-editor  class="inline-text-editor ng-valid ng-dirty ng-valid-parse ng-touched"  ng-focus = "editorFocus(cke_id)" ng-blur = "editorBlur(cke_id)" draggable="false" ng-init="cke_id='cke-'+item.type+'-'+item.id;initCke(cke_id, item.module.attrs)" ng-style="{
+			'color': item.module.style.color,
+			'font-family': item.module.style.fontFamily,
+			'line-height': item.module.style.lineHeight+'px',
+			'padding-top': item.module.style.outerPaddings.paddingTop+'px',
+			'padding-right': item.module.style.outerPaddings.paddingRight+'px',
+			'padding-bottom': item.module.style.outerPaddings.paddingBottom+'px',
+			'padding-left': item.module.style.outerPaddings.paddingLeft+'px'
+			}"> </div>
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="cnt_html.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false" ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}"  ng-bind-html="trustAsHtml(item.module.attrs.content);"   ng-init="current_itemId=item.type+'-'+item.id; ">
+		</div>
+	</div>
+</script>
+
+<!-- Template for a BUTTON "content item" -->
+<script type="text/ng-template" id="cnt_button.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false" ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}" ng-init="current_itemId=item.type+'-'+item.id">
+			<div class="buttonContainer"
+			ng-style="{
+			'text-align': item.module.style.textAlign,
+			'padding-top': item.module.style.outerPaddings.paddingTop+'px',
+			'padding-right': item.module.style.outerPaddings.paddingRight+'px',
+			'padding-bottom': item.module.style.outerPaddings.paddingBottom+'px',
+			'padding-left': item.module.style.outerPaddings.paddingLeft+'px',
+			}"
+			>
+				<a class="btn"
+				ng-style="{
+				'width': item.module.style.width+'px',
+				'color': item.module.style.color,
+				'font-family': item.module.style.fontFamily,
+				'line-height': item.module.style.lineHeight+'px',
+				'background-color': item.module.style.backgroundColor,
+				'border-radius': item.module.style.borderRadius+'px',
+				'padding-top': item.module.style.innerPaddings.paddingTop+'px',
+				'padding-right': item.module.style.innerPaddings.paddingRight+'px',
+				'padding-bottom': item.module.style.innerPaddings.paddingBottom+'px',
+				'padding-left': item.module.style.innerPaddings.paddingLeft+'px',
+				'border-top': concatBorderAttrs(item.module.style.borderTop),
+				'border-right': concatBorderAttrs(item.module.style.borderRight),
+				'border-bottom': concatBorderAttrs(item.module.style.borderBottom),
+				'border-left': concatBorderAttrs(item.module.style.borderLeft)
+				}"
+				ng-href="{{item.module.attrs.currentLink == 'webAddress' ? item.module.attrs.links.webAddress.href : 'mailto:'+item.module.attrs.links.email.mailTo+'?subject='+item.module.attrs.links.email.subject+'&body='+item.module.attrs.links.email.body}}" target="_self"
+				>  {{item.module.text}} </a>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Template for a DIVIDER "content item" -->
+<script type="text/ng-template" id="cnt_divider.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false" ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}" ng-init="current_itemId=item.type+'-'+item.id">
+			<div class="dividerContainer"
+			ng-style="{
+			'text-align': item.module.style.textAlign,
+			'padding-top': item.module.style.outerPaddings.paddingTop+'px',
+			'padding-right': item.module.style.outerPaddings.paddingRight+'px',
+			'padding-bottom': item.module.style.outerPaddings.paddingBottom+'px',
+			'padding-left': item.module.style.outerPaddings.paddingLeft+'px'
+			}"
+			>
+				<div class=""
+				ng-style="{
+				'width': item.module.style.width+'%',
+				'border-top-width': item.module.style.borderTop.width+'px',
+				'border-top-style': item.module.style.borderTop.style,
+				'border-top-color': item.module.style.borderTop.color,
+				}"></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Template for a SOCIAL "content item" -->
+<script type="text/ng-template" id="cnt_social.html">
+	<div class="widget-container" ng-mouseover="$event.stopPropagation(); colHover=true" ng-mouseout="colHover=false" ng-class="{'colLines': colHover}">
+		<div class="moveWidget"><i class="fa fa-arrows"></i></div>
+		<div class="removeWidget" ng-click="removeItem(item)"><i class="font-remove"></i></div>
+
+		<div class="iq-widget" id="{{current_itemId}}" ng-init="current_itemId=item.type+'-'+item.id">
+			<div class="socialContainer"
+			ng-style="{
+			'text-align': item.module.style.textAlign,
+			'padding-top': item.module.style.outerPaddings.paddingTop+'px',
+			'padding-right': item.module.style.outerPaddings.paddingRight+'px',
+			'padding-bottom': item.module.style.outerPaddings.paddingBottom+'px',
+			'padding-left': item.module.style.outerPaddings.paddingLeft+'px'
+			}"
+			>
+				<span class="socialIcon"
+				ng-repeat="icon in item.module.attrs.icons"
+				ng-style="{
+				'width': item.module.style.width+'%',
+				'padding-right': item.module.style.iconSpaces+'px',
+				}">
+					<a ng-href="{{icon.href ? (icon.key == 'email' ? 'mailto:'+icon.href : icon.domain + icon.href) : null}}" target="_blank">
+						<img
+						ng-src="{{socialIcons.path + socialIcons.iconFolders[ item.module.attrs.iconOrder ] + icon.iconName}}"
+						alt="{{icon.alt}}"
+						title="{{icon.title}}"
+						width="32"
+						>
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</script>

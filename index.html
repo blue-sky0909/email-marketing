@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html ng-app="meApp">
+	<head>
+		<title>8/18/2016 5.12pm | DirectIQ Mail Editor | Free email editor to design responsive design messages</title>
+		<meta charset="utf-8">
+		<script src="js/general.js" type='text/javascript'></script>
+		<script src="js/config.js" type='text/javascript'></script>
+  		<script src="js/jquery.min.js"></script>		
+		<script src="libs/angularjs/cur/angular.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/cur/angular-sanitize.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/cur/angular-animate.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/cur/angular-touch.min.js" type='text/javascript'></script>
+		
+		<script src="libs/angularjs/ui-router/angular-ui-router.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/local-storage/angular-local-storage.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/ui-bootstrap/ui-bootstrap-tpls-0.14.2.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/dragdrop/angular-drag-and-drop-lists.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/file-upload/ng-file-upload.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/file-upload/ng-file-upload-shim.min.js" type='text/javascript'></script>
+
+		<script src="libs/ckeditor_office/ckeditor.js" type='text/javascript'></script>
+		<script src="libs/angularjs/text-editor-inline/ite-custom.js" type='text/javascript'></script>
+		<script src="libs/rangy/rangy-core.js" type='text/javascript'></script>
+		<script src="libs/rangy/rangy-selectionsaverestore.js" type='text/javascript'></script>
+		<script src="libs/rangy/rangy-classapplier.js" type='text/javascript'></script>
+
+		<script src="libs/angularjs/color-picker/angularjs-color-picker-custom.js" type='text/javascript'></script>
+		<!-- <script src="libs/angularjs/color-picker/_angularjs-color-picker.min.js" type='text/javascript'></script> -->
+		<script src="libs/angularjs/color-picker/tinycolor.js" type='text/javascript'></script>
+		<script src="libs/angularjs/rz-slider/rzslider.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/toastr/angular-toastr.min.js" type='text/javascript'></script>
+		<script src="libs/angularjs/toastr/angular-toastr.tpls.min.js" type='text/javascript'></script>
+
+		<!-- <script type="text/javascript" src="http://feather.aviary.com/imaging/v2/editor.js"></script> -->
+		<script type="text/javascript" src="libs/aviary/aviary-editor.js"></script>
+		<script type="text/javascript" src="libs/codemirror/codemirror.js"></script>
+		<script type="text/javascript" src="libs/codemirror/xml/xml.js"></script>
+		<script type="text/javascript" src="libs/ui-codemirror-master/src/ui-codemirror.js"></script>
+
+
+		<script src="js/app/app.js" type='text/javascript'></script>
+		<script src="js/app/fact.mails.js" type='text/javascript'></script>
+		<script src="js/app/fact.msg.js" type='text/javascript'></script>
+		<script src="js/app/dir.number-pilot.js" type='text/javascript'></script>
+		<script src="js/app/dir.scroll-height.js" type='text/javascript'></script>
+		
+		<script src="js/app/components/welcomeCtrl.js" type='text/javascript'></script>
+		<script src="js/app/components/editTemplateCtrl.js" type='text/javascript'></script>
+		<script src="js/app/components/uploaderCtrl.js" type='text/javascript'></script>
+
+
+		<link rel="stylesheet" type="text/css" href="libs/angularjs/text-editor-inline/ite.css">
+		<link rel="stylesheet" type="text/css" href="libs/angularjs/color-picker/angularjs-color-picker.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/angularjs/rz-slider/rzslider.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/angularjs/toastr/angular-toastr.min.css">
+
+
+
+		<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+		<link rel="stylesheet" type="text/css" href="css/OpenSans-font.css">
+		<link rel="stylesheet" type="text/css" href="css/flaticon.css">
+		<link rel="stylesheet" type="text/css" href="css/font.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=02">
+		<link rel="stylesheet" type="text/css" href="css/grid.css">
+		
+		<link rel="stylesheet" type="text/css" href="css/_temporary/_temporary.css">
+		<link rel="stylesheet" type="text/css" href="css/_temporary/demo-framework.css">
+		<link rel="stylesheet" type="text/css" href="css/_temporary/nested.css">
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+  		<script src="js/bootstrap.min.js"></script>		
+
+		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/codemirror/codemirror.css">
+		
+	</head>
+
+	<body>
+		<!--MailContent-->
+		<div ui-view="mainContent" class="clearfix"></div>
+		
+		<!--Footer-->
+		<!-- <div ng-include="'partials/footer.html'"></div> -->
+		<script>
+			$(document).ready(function(){
+		    	$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
+	</body>
+</html>

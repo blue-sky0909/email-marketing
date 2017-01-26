@@ -1,0 +1,107 @@
+<div class="optionsContent">
+	<div class="properties">
+		<div class="panelHeading col_12">
+			<label>Button PROPERTIES</label>
+		</div>
+				<div class="col_12">
+					<label>Font</label>
+					<select class="form-control" ng-model="agent.module.style.fontFamily" ng-options="font.family as font.fontName for font in fontFamilies">
+						<option style="display:none;" value=""></option>
+					</select>
+				</div>
+				<div class="col_12">
+					<label>Button Text</label>
+					<input type="text" ng-model = "agent.module.text" class="full">
+				</div>				
+				<div class="col_12">
+					<label>Button Text Color</label>
+					<color-picker
+					ng-model="agent.module.style.color"
+					color-picker-format="colorPicker.format"
+					color-picker-alpha="colorPicker.alpha"
+					color-picker-swatch="colorPicker.swatch"
+					color-picker-swatch-pos="colorPicker.swatchPos"
+					color-picker-pos="colorPicker.pos"
+					color-picker-case="colorPicker.case"
+					color-picker-swatch-only="colorPicker.swatchOnly">
+					</color-picker>
+				</div>
+				<div class="col_12">
+					<label>Button Background Color</label>
+					<color-picker
+					ng-model="agent.module.style.backgroundColor"
+					color-picker-format="colorPicker.format"
+					color-picker-alpha="colorPicker.alpha"
+					color-picker-swatch="colorPicker.swatch"
+					color-picker-swatch-pos="colorPicker.swatchPos"
+					color-picker-pos="colorPicker.pos"
+					color-picker-case="colorPicker.case"
+					color-picker-swatch-only="colorPicker.swatchOnly">
+					</color-picker>
+				</div>
+				
+				<div class="col_12 align">
+					<label>Align</label>
+					<span>
+						<i ng-click="agent.module.style.textAlign = 'left'" class="font-paragraph-left"></i>
+						<i ng-click="agent.module.style.textAlign = 'center'" class="font-paragraph-center"></i>
+						<i ng-click="agent.module.style.textAlign = 'right'" class="font-paragraph-right"></i>
+					</span>
+				</div>
+				<div class="col_12">
+					<div class="inline">
+					<label>Width</label>
+					<div class="col_6 omega right">
+						<number-pilot ng-model="agent.module.style.width" min="10" max="500" step="numPilotOpts.step"></number-pilot>
+					</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="inline">
+					<label>Line Height</label>
+					<div class="col_6 omega right">
+					<number-pilot ng-model="agent.module.style.lineHeight" min="0" max="125" step="numPilotOpts.step"></number-pilot>
+					</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="inline">
+					<label>Border Radius</label>
+					<div class="col_6 omega right">
+					<number-pilot ng-model="agent.module.style.borderRadius" min="0" max="30" step="numPilotOpts.step"></number-pilot>
+					</div>
+					</div>
+					<div class="clearfix"></div>
+			</div>
+
+			<div class="col_12">
+				<p>
+					<label>Link Type</label>
+					<select ng-model="agent.module.attrs.currentLink">
+						<option value="webAddress" ng-selected="true">Web Address</option>
+						<option value="email">Email Address</option>
+					</select>
+				</p>
+				<div ng-show="agent.module.attrs.currentLink == 'webAddress'">
+					<input type="text" ng-model="agent.module.attrs.links.webAddress.href" class="full">
+				</div>
+				<div ng-show="agent.module.attrs.currentLink == 'email'">
+					<p>Mail To</p>
+					<input type="text" ng-model="agent.module.attrs.links.email.mailTo" class="full">
+					
+					<p>Subject</p>
+					<input type="text" ng-model="agent.module.attrs.links.email.subject" class="full">
+					
+					<p>Body</p>
+					<input type="text" ng-model="agent.module.attrs.links.email.body" class="full">
+				</div>
+			</div>
+<!-- 
+			<div class="common-cnt-paddings" ng-include="edit_pnl_tpls_resource+'common_cnt_paddings_inner.html'" data-dynamic="{{innerPaddingsBundle = agent.module.style.innerPaddings}}"></div>
+			
+			<div class="common-cnt-borders" ng-include="edit_pnl_tpls_resource+'common_cnt_borders.html'" data-dynamic="{{bordersBundle = agent.module.style}}"></div> -->
+			<div class="col_12" style="font-size: 14px;">
+				<label >Spacing </label>
+			</div>
+			<div class="common-cnt-paddings" ng-include="edit_pnl_tpls_resource+'common_cnt_paddings_usual.html'" data-dynamic="{{paddingsBundle = agent.module.style.outerPaddings}}"></div>
+		</div>
+	</div>
+</div>

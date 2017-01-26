@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Test 1",
+		"properties": {
+			"bodyBgColor": "#C5EDF7",
+			"contentBgColor": "#FFFFFF",
+			"fontColor": "#34495E",
+			"linkColor": "#1AC5FF"
+		}
+	},
+	{
+		"name": "Test 2",
+		"properties": {
+			"bodyBgColor": "#90D4F7",
+			"contentBgColor": "#FFDC89",
+			"fontColor": "#333333",
+			"linkColor": "#668DE5"
+		}
+	},
+	{
+		"name": "Test 3",
+		"properties": {
+			"bodyBgColor": "#BB96FF",
+			"contentBgColor": "#FF96E3",
+			"fontColor": "#333333",
+			"linkColor": "#849199"
+		}
+	},
+	{
+		"name": "Test 4",
+		"properties": {
+			"bodyBgColor": "#898CFF",
+			"contentBgColor": "#78D5E3",
+			"fontColor": "#FFFFFF",
+			"linkColor": "#5481E6"
+		}
+	}
+]

@@ -1,0 +1,57 @@
+<div class="optionsContent">
+	<div class="properties">
+		<div class="col_12 panelHeading">
+			<label>Divider PROPERTIES</label>
+		</div>
+		<div class="col_12">
+			<label>Style</label>
+			<select ng-model="agent.module.style.borderTop.style">
+				<option value="solid" ng-selected="true">Solid</option>
+				<option value="dashed">Dashed</option>
+				<option value="dotted">Dotted</option>
+			</select>
+		</div>
+		<div class="col_12">
+			<label>
+				Color
+			</label>
+			<color-picker
+			ng-model="agent.module.style.borderTop.color"
+			color-picker-format="colorPicker.format"
+			color-picker-alpha="colorPicker.alpha"
+			color-picker-swatch="colorPicker.swatch"
+			color-picker-swatch-pos="colorPicker.swatchPos"
+			color-picker-pos="colorPicker.pos"
+			color-picker-case="colorPicker.case"
+			color-picker-swatch-only="colorPicker.swatchOnly">
+			</color-picker>
+		</div>
+		<div class="col_12 align">
+			<label>Align</label>
+			<span>
+				<i ng-click="agent.module.style.textAlign = 'left'" class="font-paragraph-left"></i>
+				<i ng-click="agent.module.style.textAlign = 'center'" class="font-paragraph-center"></i>
+				<i ng-click="agent.module.style.textAlign = 'right'" class="font-paragraph-right"></i>
+			</span>
+		</div>
+
+		<div class="col_12 inline">
+			<label>Width</label>
+			<div class="col_6 omega right">
+				<number-pilot ng-model="agent.module.style.width" min="0" max="100" step="5"></number-pilot>
+			</div>
+		</div>
+
+		<div class="col_12">
+			<label>Line Height</label>
+			<div class="col_6 omega right">
+				<number-pilot ng-model="agent.module.style.borderTop.width" min="0" max="100" step="numPilotOpts.step"></number-pilot>
+			</div>
+		</div>													
+	</div>
+	<div class="col_12" style="font-size: 14px">
+		<label>Spacing</label>
+	</div>
+	<div class="common-cnt-paddings" ng-include="edit_pnl_tpls_resource+'common_cnt_paddings_usual.html'" data-dynamic="{{paddingsBundle = agent.module.style.outerPaddings}}">
+	</div>
+</div>

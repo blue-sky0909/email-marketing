@@ -1,0 +1,43 @@
+
+<div class="line"></div>
+
+<div ng-init="init_borderProps(bordersBundle)" class="inline">
+	
+</div>
+
+<div class="lineDivider"></div>
+
+<div class="borderOptions">
+	<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+		<p>Top</p>
+		<number-pilot ng-model="bordersBundle.borderTop.width" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		<p>Bottom</p>
+		<number-pilot ng-model="bordersBundle.borderBottom.width" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+	</div>
+	<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+		<p>Right</p>
+		<number-pilot ng-model="bordersBundle.borderRight.width" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+		<p>Left</p>
+		<number-pilot ng-model="bordersBundle.borderLeft.width" min="numPilotOpts.min" max="numPilotOpts.max" step="numPilotOpts.step"></number-pilot>
+	</div>
+	<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+		<color-picker
+		ng-model="bordersBundle.borderRight.color"
+		color-picker-format="colorPicker.format"
+		color-picker-alpha="colorPicker.alpha"
+		color-picker-swatch="colorPicker.swatch"
+		color-picker-swatch-pos="colorPicker.swatchPos"
+		color-picker-pos="colorPicker.pos"
+		color-picker-case="colorPicker.case"
+		color-picker-swatch-only="colorPicker.swatchOnly">
+		</color-picker>
+	</div>
+	<div class="col_6 alpha" style="padding: 0 10px;text-align: center">
+		<select ng-model="bordersBundle.borderRight.style">
+			<option value="solid">Solid</option>
+			<option value="dashed">Dashed</option>
+			<option value="dotted">Dotted</option>
+		</select>
+	</div>
+</div>
+

@@ -1,0 +1,250 @@
+@font-face {
+	font-family: 'directiq';
+	src:url('fonts/directiq.eot?pmvpg9');
+	src:url('fonts/directiq.eot?#iefixpmvpg9') format('embedded-opentype'),
+		url('fonts/directiq.ttf?pmvpg9') format('truetype'),
+		url('fonts/directiq.woff?pmvpg9') format('woff'),
+		url('fonts/directiq.svg?pmvpg9#directiq') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'directiq';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.font-down:before {
+	content: "\e615";
+}
+.font-template:before {
+	content: "\e614";
+}
+.font-picture2:before {
+	content: "\e600";
+}
+.font-button:before {
+	content: "\e601";
+}
+.font-pictureColor .path1:before {
+	content: "\e602";
+	color: rgb(52, 160, 217);
+}
+.font-pictureColor .path2:before {
+	content: "\e603";
+	margin-left: -1.4111328125em;
+	color: rgb(148, 231, 255);
+}
+.font-pictureColor .path3:before {
+	content: "\e604";
+	margin-left: -1.4111328125em;
+	color: rgb(148, 231, 255);
+}
+.font-pictureColor .path4:before {
+	content: "\e605";
+	margin-left: -1.4111328125em;
+	color: rgb(168, 168, 169);
+}
+.font-pictureColor .path5:before {
+	content: "\e606";
+	margin-left: -1.4111328125em;
+	color: rgb(243, 175, 28);
+}
+.font-text:before {
+	content: "\e607";
+}
+.font-heading:before {
+	content: "\e608";
+}
+.font-socialMedia:before {
+	content: "\e609";
+}
+.font-remove:before {
+	content: "\e60a";
+}
+.font-body:before {
+	content: "\e60b";
+}
+.font-picture:before {
+	content: "\e60c";
+}
+.font-menu:before {
+	content: "\e60d";
+}
+.font-move:before {
+	content: "\e60e";
+}
+.font-search:before {
+	content: "\e60f";
+}
+.font-settings:before {
+	content: "\e610";
+}
+.font-content:before {
+	content: "\e611";
+}
+.font-mail:before {
+	content: "\e612";
+}
+.font-file:before {
+	content: "\e613";
+}
+.font-home2:before {
+	content: "\e901";
+}
+.font-image:before {
+	content: "\e90d";
+}
+.font-images:before {
+	content: "\e90e";
+}
+.font-files-empty:before {
+	content: "\e925";
+}
+.font-file-text2:before {
+	content: "\e926";
+}
+.font-copy:before {
+	content: "\e92c";
+}
+.font-paste:before {
+	content: "\e92d";
+}
+.font-structure:before {
+	content: "\e92e";
+}
+.font-folder-open:before {
+	content: "\e930";
+}
+.font-box-add:before {
+	content: "\e95e";
+}
+.font-floppy-disk:before {
+	content: "\e962";
+}
+.font-user:before {
+	content: "\e971";
+}
+.font-enlarge2:before {
+	content: "\e98b";
+}
+.font-shrink2:before {
+	content: "\e98c";
+}
+.font-lock:before {
+	content: "\e98f";
+}
+.font-equalizer:before {
+	content: "\e992";
+}
+.font-bin:before {
+	content: "\e9ac";
+}
+.font-clipboard:before {
+	content: "\e9b8";
+}
+.font-cloud-download:before {
+	content: "\e9c2";
+}
+.font-cloud-check:before {
+	content: "\e9c4";
+}
+.font-link:before {
+	content: "\e9cb";
+}
+.font-eye:before {
+	content: "\e9ce";
+}
+.font-eye-blocked:before {
+	content: "\e9d1";
+}
+.font-star-full:before {
+	content: "\e9d9";
+}
+.font-notification:before {
+	content: "\ea08";
+}
+.font-plus:before {
+	content: "\ea0a";
+}
+.font-minus:before {
+	content: "\ea0b";
+}
+.font-cancel-circle:before {
+	content: "\ea0d";
+}
+.font-blocked:before {
+	content: "\ea0e";
+}
+.font-cross:before {
+	content: "\ea0f";
+}
+.font-checkmark:before {
+	content: "\ea10";
+}
+.font-checkmark2:before {
+	content: "\ea11";
+}
+.font-circle-up:before {
+	content: "\ea41";
+}
+.font-circle-right:before {
+	content: "\ea42";
+}
+.font-circle-down:before {
+	content: "\ea43";
+}
+.font-circle-left:before {
+	content: "\ea44";
+}
+.font-ungroup:before {
+	content: "\ea59";
+}
+.font-page-break:before {
+	content: "\ea68";
+}
+.font-insert-template:before {
+	content: "\ea72";
+}
+.font-paragraph-left:before {
+	content: "\ea77";
+}
+.font-paragraph-center:before {
+	content: "\ea78";
+}
+.font-paragraph-right:before {
+	content: "\ea79";
+}
+.font-html:before {
+	content: "\ea80";
+}
+.font-google-plus:before {
+	content: "\ea89";
+}
+.font-facebook:before {
+	content: "\ea8d";
+}
+.font-twitter:before {
+	content: "\ea92";
+}
+.font-feed:before {
+	content: "\ea95";
+}
+.font-youtube:before {
+	content: "\ea99";
+}
+.font-linkedin:before {
+	content: "\eac9";
+}
+.font-pinterest:before {
+	content: "\ead1";
+}

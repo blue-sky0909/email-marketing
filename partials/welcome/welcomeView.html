@@ -1,0 +1,39 @@
+<div class="mainContent welcome" ng-controller="welcomeCtrl">
+
+	<div ng-init="initReadyTemplates()">
+
+		<div class="container welcome">
+
+			<div class="row text-center">
+				
+					<img src = "img/logo-ts.png" alt="directIQ logo template select" >
+				
+				
+			</div>
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h4 class="welcome-slogan"> Easy email builder </h4>
+				</div>
+			</div>
+			<div class="center-block templateBox" ng-hide="">
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h4 style="margin-top:20px; margin-bottom: 20px;"> SELECT A TEMPLATE </h4>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="col-xs-1 col-md-1"></div>
+					<div ng-repeat="tpl in readyTemplates" class="col-xs-2 col-md-2">
+						<a href ng-click="selectTpl($index)" class="thumbnail">
+							<img ng-src="{{tpl.thumb}}" alt="...">
+							<div class="caption text-center bg-info">
+								<h3>{{tpl.title}}</h3>
+							</div>
+						</a>
+					</div>
+					<div class="col-xs-1 col-md-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
